@@ -1,0 +1,75 @@
+\doxysection{Структура Sensor\+Query\+Packet}
+\hypertarget{struct_sensor_query_packet}{}\label{struct_sensor_query_packet}\index{SensorQueryPacket@{SensorQueryPacket}}
+
+
+Структура пакета запроса данных датчиков системы (размер 11 байт).  
+
+
+
+
+{\ttfamily \#include $<$Fan\+Controller.\+h$>$}
+
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_sensor_query_packet_af6ed341f1875fd8ac15d10a05a0a48dc}{command\+Code}} = 13
+\begin{DoxyCompactList}\small\item\em Код команды службы (всегда 13). \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_sensor_query_packet_a7e146040f544b95975e221424aa87717}{argument\+Count}} = 1
+\begin{DoxyCompactList}\small\item\em Количество аргументов (всегда 1). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_sensor_query_packet_a36bd82d04566a1a19d60d711157f56f6}{argument\+Length}} = 4
+\begin{DoxyCompactList}\small\item\em Размер аргумента в байтах (всегда 4 байта для uint32\+\_\+t). \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_sensor_query_packet_a28ea7ec876e0c6e2c125a61b74be3bb1}{payload}}
+\begin{DoxyCompactList}\small\item\em Данные запроса (код датчика). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура пакета запроса данных датчиков системы (размер 11 байт). 
+
+\label{doc-variable-members}
+\Hypertarget{struct_sensor_query_packet_doc-variable-members}
+\doxysubsection{Данные класса}
+\Hypertarget{struct_sensor_query_packet_a7e146040f544b95975e221424aa87717}\index{SensorQueryPacket@{SensorQueryPacket}!argumentCount@{argumentCount}}
+\index{argumentCount@{argumentCount}!SensorQueryPacket@{SensorQueryPacket}}
+\doxysubsubsection{\texorpdfstring{argumentCount}{argumentCount}}
+{\footnotesize\ttfamily \label{struct_sensor_query_packet_a7e146040f544b95975e221424aa87717} 
+uint8\+\_\+t Sensor\+Query\+Packet\+::argument\+Count = 1}
+
+
+
+Количество аргументов (всегда 1). 
+
+\Hypertarget{struct_sensor_query_packet_a36bd82d04566a1a19d60d711157f56f6}\index{SensorQueryPacket@{SensorQueryPacket}!argumentLength@{argumentLength}}
+\index{argumentLength@{argumentLength}!SensorQueryPacket@{SensorQueryPacket}}
+\doxysubsubsection{\texorpdfstring{argumentLength}{argumentLength}}
+{\footnotesize\ttfamily \label{struct_sensor_query_packet_a36bd82d04566a1a19d60d711157f56f6} 
+uint32\+\_\+t Sensor\+Query\+Packet\+::argument\+Length = 4}
+
+
+
+Размер аргумента в байтах (всегда 4 байта для uint32\+\_\+t). 
+
+\Hypertarget{struct_sensor_query_packet_af6ed341f1875fd8ac15d10a05a0a48dc}\index{SensorQueryPacket@{SensorQueryPacket}!commandCode@{commandCode}}
+\index{commandCode@{commandCode}!SensorQueryPacket@{SensorQueryPacket}}
+\doxysubsubsection{\texorpdfstring{commandCode}{commandCode}}
+{\footnotesize\ttfamily \label{struct_sensor_query_packet_af6ed341f1875fd8ac15d10a05a0a48dc} 
+uint16\+\_\+t Sensor\+Query\+Packet\+::command\+Code = 13}
+
+
+
+Код команды службы (всегда 13). 
+
+\Hypertarget{struct_sensor_query_packet_a28ea7ec876e0c6e2c125a61b74be3bb1}\index{SensorQueryPacket@{SensorQueryPacket}!payload@{payload}}
+\index{payload@{payload}!SensorQueryPacket@{SensorQueryPacket}}
+\doxysubsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily \label{struct_sensor_query_packet_a28ea7ec876e0c6e2c125a61b74be3bb1} 
+uint32\+\_\+t Sensor\+Query\+Packet\+::payload}
+
+
+
+Данные запроса (код датчика). 
+
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_fan_controller_8h}{Fan\+Controller.\+h}}\end{DoxyCompactItemize}

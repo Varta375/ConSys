@@ -1,0 +1,63 @@
+\doxysection{Структура Process\+Info}
+\hypertarget{struct_process_info}{}\label{struct_process_info}\index{ProcessInfo@{ProcessInfo}}
+
+
+Структура для хранения информации об ID, имени процесса и определения его принадлежности к системным процессам  
+
+
+
+
+{\ttfamily \#include $<$Process\+Manager.\+h$>$}
+
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+DWORD \mbox{\hyperlink{struct_process_info_a7b08b0de666decfdd35b4fabf301687a}{pid}}
+\begin{DoxyCompactList}\small\item\em ID процесса \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{struct_process_info_a01ea2b62ee302174c36fa4e5bb49ab2a}{name}}
+\begin{DoxyCompactList}\small\item\em Имя процесса \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_process_info_a06acd987084f91d507d335d4526f9e35}{is\+System}} \{ false \}
+\begin{DoxyCompactList}\small\item\em Фильтр процесса (системный или пользовательский). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура для хранения информации об ID, имени процесса и определения его принадлежности к системным процессам 
+
+\label{doc-variable-members}
+\Hypertarget{struct_process_info_doc-variable-members}
+\doxysubsection{Данные класса}
+\Hypertarget{struct_process_info_a06acd987084f91d507d335d4526f9e35}\index{ProcessInfo@{ProcessInfo}!isSystem@{isSystem}}
+\index{isSystem@{isSystem}!ProcessInfo@{ProcessInfo}}
+\doxysubsubsection{\texorpdfstring{isSystem}{isSystem}}
+{\footnotesize\ttfamily \label{struct_process_info_a06acd987084f91d507d335d4526f9e35} 
+bool Process\+Info\+::is\+System \{ false \}}
+
+
+
+Фильтр процесса (системный или пользовательский). 
+
+\Hypertarget{struct_process_info_a01ea2b62ee302174c36fa4e5bb49ab2a}\index{ProcessInfo@{ProcessInfo}!name@{name}}
+\index{name@{name}!ProcessInfo@{ProcessInfo}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{struct_process_info_a01ea2b62ee302174c36fa4e5bb49ab2a} 
+std\+::string Process\+Info\+::name}
+
+
+
+Имя процесса 
+
+\Hypertarget{struct_process_info_a7b08b0de666decfdd35b4fabf301687a}\index{ProcessInfo@{ProcessInfo}!pid@{pid}}
+\index{pid@{pid}!ProcessInfo@{ProcessInfo}}
+\doxysubsubsection{\texorpdfstring{pid}{pid}}
+{\footnotesize\ttfamily \label{struct_process_info_a7b08b0de666decfdd35b4fabf301687a} 
+DWORD Process\+Info\+::pid}
+
+
+
+ID процесса 
+
+
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_process_manager_8h}{Process\+Manager.\+h}}\end{DoxyCompactItemize}

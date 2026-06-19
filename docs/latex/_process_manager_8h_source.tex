@@ -1,0 +1,39 @@
+\doxysection{Process\+Manager.\+h}
+\hypertarget{_process_manager_8h_source}{}\label{_process_manager_8h_source}\index{include/ProcessManager.h@{include/ProcessManager.h}}
+\mbox{\hyperlink{_process_manager_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PROCESSMANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PROCESSMANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <psapi.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sddl.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <tlhelp32.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}advapi32.lib"{})}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ comment(lib,\ "{}psapi.lib"{})}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_process_info}{ProcessInfo}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ DWORD\ \mbox{\hyperlink{struct_process_info_a7b08b0de666decfdd35b4fabf301687a}{pid}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ \mbox{\hyperlink{struct_process_info_a01ea2b62ee302174c36fa4e5bb49ab2a}{name}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_process_info_a06acd987084f91d507d335d4526f9e35}{isSystem}}\{\ \textcolor{keyword}{false}\ \};\ }
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_process_manager}{ProcessManager}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<ProcessInfo>\&\ \mbox{\hyperlink{class_process_manager_afd359b0a1a4dcdb278bbae3a37fbcccc}{Refresh}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<ProcessInfo>\&\ \mbox{\hyperlink{class_process_manager_ab29f75e62f06c4f00edac4c23d36d079}{GetList}}(\textcolor{keywordtype}{bool}\ refresh\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_process_manager_a31fc250c6ef6f1c2efd52fde275fc016}{StopProcess}}(DWORD\ pid);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<ProcessInfo>\ Processes;\ }
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
