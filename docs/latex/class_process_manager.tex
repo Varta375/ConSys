@@ -23,7 +23,10 @@ bool \mbox{\hyperlink{class_process_manager_a31fc250c6ef6f1c2efd52fde275fc016}{S
 \doxysubsection{Подробное описание}
 Класс для создания снимка действующих процессов системы 
 
-Программа использует библиотеку Windows.\+h для создания снимка системы. Позволяет получать список процессов и обновлять его при необходимости. Кроме того, существует возможность приостановить процесс (плавно, с таймаутом) из списка. \begin{DoxySeeAlso}{См. также}
+Программа использует библиотеку Windows.\+h для создания снимка системы. Позволяет получать список процессов и обновлять его при необходимости. Кроме того, существует возможность приостановить процесс (плавно, с таймаутом) из списка. \begin{DoxyWarning}{Предупреждения}
+Приостановка процесса некоторых программ (например, вида UWP) не сработает по причине его передачи Application\+Frame\+Host.\+exe. При его закрытии закроются все зависимые от него программы. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{См. также}
 \href{https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide}{\texttt{https\+://learn.\+microsoft.\+com/ru-\/ru/windows/uwp/get-\/started/universal-\/application-\/platform-\/guide}} 
 \end{DoxySeeAlso}
 
@@ -115,4 +118,4 @@ bool Process\+Manager\+::\+Stop\+Process (\begin{DoxyParamCaption}\item[{DWORD}]
 
 Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
 \item 
-include/\mbox{\hyperlink{_process_manager_8h}{Process\+Manager.\+h}}\end{DoxyCompactItemize}
+Core/include/Process\+Manager.\+h\end{DoxyCompactItemize}

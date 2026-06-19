@@ -35,18 +35,14 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Файлы", "files.html", [
-      [ "Файлы", "files.html", "files_dup" ],
-      [ "Список членов всех файлов", "globals.html", [
-        [ "Указатель", "globals.html", null ],
-        [ "Перечисления", "globals_enum.html", null ]
-      ] ]
+      [ "Файлы", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_fan_controller_8h.html"
+"_fan_controller_8h_source.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

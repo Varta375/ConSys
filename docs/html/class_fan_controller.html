@@ -28,6 +28,7 @@
   <td id="projectalign">
    <div id="projectname">ConSys
    </div>
+   <div id="projectbrief">Утилита для ноутбука Acer Nitro 5 AN515-45 (Ryzen 5 5600H RTX 3060)</div>
   </td>
  </tr>
  </tbody>
@@ -109,7 +110,7 @@ $(function(){initNavTree('class_fan_controller.html','','class_fan_controller-me
 <tr class="memdesc:a6e20b33d0ea8b5024565e937fe768fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение текущей реальной скорости вращения вентилятора процессора  <br /></td></tr>
 <tr class="memitem:a4d601690cca316bc5dac04d7dcef8b52" id="r_a4d601690cca316bc5dac04d7dcef8b52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d601690cca316bc5dac04d7dcef8b52">GetGpuFanRPM</a> ()</td></tr>
 <tr class="memdesc:a4d601690cca316bc5dac04d7dcef8b52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение текущей реальной скорости вращения вентилятора дискретной видеокарты  <br /></td></tr>
-<tr class="memitem:a72ea07e89426bb33c67b71397dd77cb6" id="r_a72ea07e89426bb33c67b71397dd77cb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72ea07e89426bb33c67b71397dd77cb6">ApplyChangesViaPipe</a> (<a class="el" href="_fan_controller_8h.html#a42149efe92c247e3cc286b5ec094d9b3">FanType</a> fanType, DWORD percent)</td></tr>
+<tr class="memitem:a72ea07e89426bb33c67b71397dd77cb6" id="r_a72ea07e89426bb33c67b71397dd77cb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72ea07e89426bb33c67b71397dd77cb6">ApplyChangesViaPipe</a> (FanType fanType, DWORD percent)</td></tr>
 <tr class="memdesc:a72ea07e89426bb33c67b71397dd77cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка команды на применение скорости вентилятора через именованный канал  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
@@ -125,7 +126,7 @@ $(function(){initNavTree('class_fan_controller.html','','class_fan_controller-me
         <tr>
           <td class="memname">bool FanController::ApplyChangesViaPipe </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_fan_controller_8h.html#a42149efe92c247e3cc286b5ec094d9b3">FanType</a></td>          <td class="paramname"><span class="paramname"><em>fanType</em></span>, </td>
+          <td class="paramtype">FanType</td>          <td class="paramname"><span class="paramname"><em>fanType</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -304,7 +305,7 @@ $(function(){initNavTree('class_fan_controller.html','','class_fan_controller-me
 </div>
 </div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
-<li>include/<a class="el" href="_fan_controller_8h_source.html">FanController.h</a></li>
+<li>Core/include/<a class="el" href="_fan_controller_8h_source.html">FanController.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

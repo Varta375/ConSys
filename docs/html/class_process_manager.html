@@ -28,6 +28,7 @@
   <td id="projectalign">
    <div id="projectname">ConSys
    </div>
+   <div id="projectbrief">Утилита для ноутбука Acer Nitro 5 AN515-45 (Ryzen 5 5600H RTX 3060)</div>
   </td>
  </tr>
  </tbody>
@@ -108,7 +109,8 @@ $(function(){initNavTree('class_process_manager.html','','class_process_manager-
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Класс для создания снимка действующих процессов системы </p>
-<p>Программа использует библиотеку Windows.h для создания снимка системы. Позволяет получать список процессов и обновлять его при необходимости. Кроме того, существует возможность приостановить процесс (плавно, с таймаутом) из списка. </p><dl class="section see"><dt>См. также</dt><dd><a href="https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide">https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide</a> </dd></dl>
+<p>Программа использует библиотеку Windows.h для создания снимка системы. Позволяет получать список процессов и обновлять его при необходимости. Кроме того, существует возможность приостановить процесс (плавно, с таймаутом) из списка. </p><dl class="section warning"><dt>Предупреждения</dt><dd>Приостановка процесса некоторых программ (например, вида UWP) не сработает по причине его передачи ApplicationFrameHost.exe. При его закрытии закроются все зависимые от него программы. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a href="https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide">https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide</a> </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
 <a id="ab29f75e62f06c4f00edac4c23d36d079" name="ab29f75e62f06c4f00edac4c23d36d079"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab29f75e62f06c4f00edac4c23d36d079">&#9670;&#160;</a></span>GetList()</h2>
@@ -213,7 +215,7 @@ $(function(){initNavTree('class_process_manager.html','','class_process_manager-
 </div>
 </div>
 <hr/>Объявления и описания членов класса находятся в файле:<ul>
-<li>include/<a class="el" href="_process_manager_8h_source.html">ProcessManager.h</a></li>
+<li>Core/include/<a class="el" href="_process_manager_8h_source.html">ProcessManager.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

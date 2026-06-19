@@ -1,6 +1,6 @@
 \doxysection{Fan\+Controller.\+h}
-\hypertarget{_fan_controller_8h_source}{}\label{_fan_controller_8h_source}\index{include/FanController.h@{include/FanController.h}}
-\mbox{\hyperlink{_fan_controller_8h}{См. документацию.}}
+\hypertarget{_fan_controller_8h_source}{}\label{_fan_controller_8h_source}\index{Core/include/FanController.h@{Core/include/FanController.h}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FanController\_H}}
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FanController\_H}}
@@ -10,9 +10,9 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <optional>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{_fan_controller_8h_a42149efe92c247e3cc286b5ec094d9b3}{FanType}}\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{_fan_controller_8h_a42149efe92c247e3cc286b5ec094d9b3a2b55387dd066c5bac646ac61543d152d}{CPU}}\ =\ 1,\ }
-\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{_fan_controller_8h_a42149efe92c247e3cc286b5ec094d9b3a52f9ec21735243ad9917cda3ca077d32}{GPU}}\ =\ 4\ \ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ FanType\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ CPU\ =\ 1,\ }
+\DoxyCodeLine{00015\ \ \ \ \ GPU\ =\ 4\ \ }
 \DoxyCodeLine{00016\ \};}
 \DoxyCodeLine{00017\ }
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#pragma\ pack(push,\ 1)}}
@@ -50,7 +50,7 @@
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fan_controller_a4d601690cca316bc5dac04d7dcef8b52}{GetGpuFanRPM}}();}
 \DoxyCodeLine{00110\ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fan_controller_a72ea07e89426bb33c67b71397dd77cb6}{ApplyChangesViaPipe}}(\mbox{\hyperlink{_fan_controller_8h_a42149efe92c247e3cc286b5ec094d9b3}{FanType}}\ fanType,\ DWORD\ percent);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fan_controller_a72ea07e89426bb33c67b71397dd77cb6}{ApplyChangesViaPipe}}(FanType\ fanType,\ DWORD\ percent);}
 \DoxyCodeLine{00121\ }
 \DoxyCodeLine{00122\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{const}\ std::wstring\ regPath\ =\ L\textcolor{stringliteral}{"{}SOFTWARE\(\backslash\)\(\backslash\)OEM\(\backslash\)\(\backslash\)NitroSense\(\backslash\)\(\backslash\)FanControl"{}};\ }
