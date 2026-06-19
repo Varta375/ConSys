@@ -27,6 +27,8 @@ target_include_directories(winreg_iface INTERFACE "${winreg_SOURCE_DIR}/WinReg")
 
 add_executable(ConSys
     src/HardwareMonitor.cpp
+    src/FanController.cpp
+    src/PowerManager.cpp
 )
 
 target_include_directories(ConSys PRIVATE
@@ -34,9 +36,11 @@ target_include_directories(ConSys PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/external
 )
 
-target_link_libraries(ConSys PRIVATE       
+target_link_libraries(ConSys PRIVATE
+    winreg_iface        
     ${CMAKE_CURRENT_SOURCE_DIR}/external/lhwm-cpp-wrapper.lib
     mscoree.lib
+    PowrProf.lib
 )
 
 set_target_properties(ConSys PROPERTIES
@@ -50,3 +54,11 @@ if(LHM_DLLS)
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LHM_DLLS} $<TARGET_FILE_DIR:ConSys>
     )
 endif()
+
+add_custom_command(TARGET ConSys POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/ryzenadj.exe
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/WinRing0x64.sys
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/WinRing0x64.dll
+        $<TARGET_FILE_DIR:ConSys>
+)
