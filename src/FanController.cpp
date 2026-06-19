@@ -1,21 +1,19 @@
 #include "FanController.h"
-#include <windows.h>
-#include <winreg.hpp>
+#include "HardwareMonitor.h"
 #include <exception>
 #include <iostream>
-#include "HardwareMonitor.h"
+#include <windows.h>
+#include <winreg.hpp>
 
 bool FanController::SetCpuFanSpeed(DWORD percent) {
     try {
-        winreg::RegKey key{ HKEY_LOCAL_MACHINE, regPath, KEY_WRITE };
+        winreg::RegKey key { HKEY_LOCAL_MACHINE, regPath, KEY_WRITE };
         key.SetDwordValue(L"CPUFanPercentage", percent);
         return ApplyChangesViaPipe(FanType::CPU, percent);
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Exception in SetCpuFanSpeed(): " << e.what() << std::endl;
         return false;
-    }
-    catch (...) {
+    } catch (...) {
         std::cerr << "Unknown exception in SetCpuFanSpeed()" << std::endl;
         return false;
     }
@@ -23,15 +21,13 @@ bool FanController::SetCpuFanSpeed(DWORD percent) {
 
 bool FanController::SetGpuFanSpeed(DWORD percent) {
     try {
-        winreg::RegKey key{ HKEY_LOCAL_MACHINE, regPath, KEY_WRITE };
+        winreg::RegKey key { HKEY_LOCAL_MACHINE, regPath, KEY_WRITE };
         key.SetDwordValue(L"GPU1FanPercentage", percent);
         return ApplyChangesViaPipe(FanType::GPU, percent);
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Exception in SetGpuFanSpeed(): " << e.what() << std::endl;
         return false;
-    }
-    catch (...) {
+    } catch (...) {
         std::cerr << "Unknown exception in SetGpuFanSpeed()" << std::endl;
         return false;
     }
@@ -41,12 +37,10 @@ int FanController::GetCpuFanRPM() {
     try {
         auto v = GetSystemHealthValue(2); // CPU fan speed
         return v.value_or(-1);
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Exception in GetCpuFanRPM(): " << e.what() << std::endl;
         return -1;
-    }
-    catch (...) {
+    } catch (...) {
         std::cerr << "Unknown exception in GetCpuFanRPM()" << std::endl;
         return -1;
     }
@@ -56,12 +50,10 @@ int FanController::GetGpuFanRPM() {
     try {
         auto v = GetSystemHealthValue(6); // GPU fan speed
         return v.value_or(-1);
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Exception in GetGpuFanRPM(): " << e.what() << std::endl;
         return -1;
-    }
-    catch (...) {
+    } catch (...) {
         std::cerr << "Unknown exception in GetGpuFanRPM()" << std::endl;
         return -1;
     }
@@ -69,18 +61,17 @@ int FanController::GetGpuFanRPM() {
 
 bool FanController::SetFanMode(int mode) {
     try {
-        if (mode < 0 || mode > 2) return false;
+        if (mode < 0 || mode > 2)
+            return false;
 
-        int CpuPercentage{ 0 };
-        int GpuPercentage{ 0 };
+        int CpuPercentage { 0 };
+        int GpuPercentage { 0 };
 
-        if (mode == 1) 
-        { // Custom
+        if (mode == 1) { // Custom
 
             CpuPercentage = GetCpuFanRPM();
             GpuPercentage = GetGpuFanRPM();
-        }
-        else { // Max
+        } else { // Max
             CpuPercentage = 100;
             GpuPercentage = 100;
         }
@@ -88,12 +79,10 @@ bool FanController::SetFanMode(int mode) {
         ApplyChangesViaPipe(FanType::CPU, static_cast<DWORD>(CpuPercentage));
         ApplyChangesViaPipe(FanType::GPU, static_cast<DWORD>(GpuPercentage));
         return true;
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "Exception in SetFanMode(): " << e.what() << std::endl;
         return false;
-    }
-    catch (...) {
+    } catch (...) {
         std::cerr << "Unknown exception in SetFanMode()" << std::endl;
         return false;
     }
@@ -111,11 +100,8 @@ bool FanController::ApplyChangesViaPipe(FanType fanType, DWORD percent) {
         FanCommandPacket commandPacket;
         commandPacket.payload = fanControlPayload;
 
-        pipeHandle = CreateFileA(
-            R"(\\.\pipe\PredatorSense_service_namedpipe)",
-            GENERIC_READ | GENERIC_WRITE,
-            0, nullptr, OPEN_EXISTING, 0, nullptr
-        );
+        pipeHandle = CreateFileA(R"(\\.\pipe\PredatorSense_service_namedpipe)", GENERIC_READ | GENERIC_WRITE, 0,
+            nullptr, OPEN_EXISTING, 0, nullptr);
 
         if (pipeHandle == INVALID_HANDLE_VALUE) {
             return false;
@@ -134,15 +120,13 @@ bool FanController::ApplyChangesViaPipe(FanType fanType, DWORD percent) {
         pipeHandle = INVALID_HANDLE_VALUE;
 
         return bytesWritten == sizeof(commandPacket);
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         if (pipeHandle != INVALID_HANDLE_VALUE) {
             CloseHandle(pipeHandle);
         }
         std::cerr << "Exception in ApplyChangesViaPipe(): " << e.what() << std::endl;
         return false;
-    }
-    catch (...) {
+    } catch (...) {
         if (pipeHandle != INVALID_HANDLE_VALUE) {
             CloseHandle(pipeHandle);
         }
@@ -156,11 +140,8 @@ bool FanController::ApplyChangesViaPipe(FanType fanType, DWORD percent) {
 std::optional<int> FanController::GetSystemHealthValue(int index) {
     HANDLE pipeHandle = INVALID_HANDLE_VALUE;
     try {
-        pipeHandle = CreateFileA(
-            R"(\\.\pipe\PredatorSense_service_namedpipe)",
-            GENERIC_READ | GENERIC_WRITE,
-            0, nullptr, OPEN_EXISTING, 0, nullptr
-        );
+        pipeHandle = CreateFileA(R"(\\.\pipe\PredatorSense_service_namedpipe)", GENERIC_READ | GENERIC_WRITE, 0,
+            nullptr, OPEN_EXISTING, 0, nullptr);
 
         if (pipeHandle == INVALID_HANDLE_VALUE) {
             return std::nullopt;
@@ -192,22 +173,20 @@ std::optional<int> FanController::GetSystemHealthValue(int index) {
         uint64_t rawSensorData = responsePacket.payload;
 
         if ((rawSensorData & 0xFF) == 0) // Младший байт (rawSensorData & 0xFF) отвечает за статус успешности.
-        { 
+        {
             // Сдвигаем данные на 8 бит вправо, чтобы убрать байт статуса,
             // и накладываем маску 0xFFFF для выделения 16-битного значения датчика (например, RPM или темп.).
             return static_cast<int>((rawSensorData >> 8) & 0xFFFF);
         }
 
         return std::nullopt;
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         if (pipeHandle != INVALID_HANDLE_VALUE) {
             CloseHandle(pipeHandle);
         }
         std::cerr << "Exception in GetSystemHealthValue(): " << e.what() << std::endl;
         return std::nullopt;
-    }
-    catch (...) {
+    } catch (...) {
         if (pipeHandle != INVALID_HANDLE_VALUE) {
             CloseHandle(pipeHandle);
         }
