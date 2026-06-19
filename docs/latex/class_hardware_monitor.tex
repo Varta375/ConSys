@@ -1,0 +1,138 @@
+\doxysection{Класс Hardware\+Monitor}
+\hypertarget{class_hardware_monitor}{}\label{class_hardware_monitor}\index{HardwareMonitor@{HardwareMonitor}}
+
+
+Класс для получения данных о температуре и нагрузке CPU и GPU.  
+
+
+
+
+{\ttfamily \#include $<$Hardware\+Monitor.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81}{Update}} ()
+\begin{DoxyCompactList}\small\item\em Обновляет информацию по всем датчикам. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_monitor_a44c184e72569fe31272a2f33188e6dca}{Get\+Cpu\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает значение температуры CPU. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_monitor_a931e69013cf0fd9fdd96d5ba5d00392f}{Get\+Gpu\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает значение температуры GPU. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_monitor_a548443761e26ac61f05800d9e37ac806}{Get\+Cpu\+Load}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает значение общей загрузки CPU. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_monitor_a244dcbbcfa617c662b4c7aeee487b035}{Get\+Gpu\+Load}} ()
+\begin{DoxyCompactList}\small\item\em Возвращает значение загрузки графического ядра GPU. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для получения данных о температуре и нагрузке CPU и GPU. 
+
+Предоставляет интерфейс для чтения показателей с датчиков системы через предопределенные пути в файловой системе. 
+
+\label{doc-func-members}
+\Hypertarget{class_hardware_monitor_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_hardware_monitor_a548443761e26ac61f05800d9e37ac806}\index{HardwareMonitor@{HardwareMonitor}!GetCpuLoad@{GetCpuLoad}}
+\index{GetCpuLoad@{GetCpuLoad}!HardwareMonitor@{HardwareMonitor}}
+\doxysubsubsection{\texorpdfstring{GetCpuLoad()}{GetCpuLoad()}}
+{\footnotesize\ttfamily \label{class_hardware_monitor_a548443761e26ac61f05800d9e37ac806} 
+int Hardware\+Monitor\+::\+Get\+Cpu\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает значение общей загрузки CPU. 
+
+\begin{DoxyReturn}{Возвращает}
+Загрузка процессора в процентах (от 0 до 100). Возвращает 0, если данные еще не были обновлены, или -\/1 в случае возникновения ошибки. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Значение актуально только после вызова метода \doxylink{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81}{Update()}. 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_hardware_monitor_a44c184e72569fe31272a2f33188e6dca}\index{HardwareMonitor@{HardwareMonitor}!GetCpuTemperature@{GetCpuTemperature}}
+\index{GetCpuTemperature@{GetCpuTemperature}!HardwareMonitor@{HardwareMonitor}}
+\doxysubsubsection{\texorpdfstring{GetCpuTemperature()}{GetCpuTemperature()}}
+{\footnotesize\ttfamily \label{class_hardware_monitor_a44c184e72569fe31272a2f33188e6dca} 
+int Hardware\+Monitor\+::\+Get\+Cpu\+Temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает значение температуры CPU. 
+
+\begin{DoxyReturn}{Возвращает}
+Температура процессора в градусах Цельсия. Возвращает 0, если данные еще не были обновлены, или -\/1 в случае возникновения ошибки. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Значение актуально только после вызова метода \doxylink{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81}{Update()}. 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_hardware_monitor_a244dcbbcfa617c662b4c7aeee487b035}\index{HardwareMonitor@{HardwareMonitor}!GetGpuLoad@{GetGpuLoad}}
+\index{GetGpuLoad@{GetGpuLoad}!HardwareMonitor@{HardwareMonitor}}
+\doxysubsubsection{\texorpdfstring{GetGpuLoad()}{GetGpuLoad()}}
+{\footnotesize\ttfamily \label{class_hardware_monitor_a244dcbbcfa617c662b4c7aeee487b035} 
+int Hardware\+Monitor\+::\+Get\+Gpu\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает значение загрузки графического ядра GPU. 
+
+\begin{DoxyReturn}{Возвращает}
+Загрузка графического ядра в процентах (от 0 до 100). Возвращает 0, если данные еще не были обновлены, или -\/1 в случае возникновения ошибки. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Значение актуально только после вызова метода \doxylink{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81}{Update()}. 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_hardware_monitor_a931e69013cf0fd9fdd96d5ba5d00392f}\index{HardwareMonitor@{HardwareMonitor}!GetGpuTemperature@{GetGpuTemperature}}
+\index{GetGpuTemperature@{GetGpuTemperature}!HardwareMonitor@{HardwareMonitor}}
+\doxysubsubsection{\texorpdfstring{GetGpuTemperature()}{GetGpuTemperature()}}
+{\footnotesize\ttfamily \label{class_hardware_monitor_a931e69013cf0fd9fdd96d5ba5d00392f} 
+int Hardware\+Monitor\+::\+Get\+Gpu\+Temperature (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Возвращает значение температуры GPU. 
+
+\begin{DoxyReturn}{Возвращает}
+Температура видеокарты в градусах Цельсия. Возвращает 0, если данные еще не были обновлены, или -\/1 в случае возникновения ошибки. 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Значение актуально только после вызова метода \doxylink{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81}{Update()}. 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81}\index{HardwareMonitor@{HardwareMonitor}!Update@{Update}}
+\index{Update@{Update}!HardwareMonitor@{HardwareMonitor}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_hardware_monitor_a0bb77547e41c11c516c9b18b1ae15e81} 
+void Hardware\+Monitor\+::\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Обновляет информацию по всем датчикам. 
+
+Выполняет чтение текущих значений температуры и нагрузки для CPU и GPU и сохраняет их во внутренние переменные. Рекомендуется вызывать этот метод перед вызовом геттеров. 
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Core/include/Hardware\+Monitor.\+h\end{DoxyCompactItemize}

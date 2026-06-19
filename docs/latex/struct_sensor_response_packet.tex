@@ -1,0 +1,28 @@
+\doxysection{Структура Sensor\+Response\+Packet}
+\hypertarget{struct_sensor_response_packet}{}\label{struct_sensor_response_packet}\index{SensorResponsePacket@{SensorResponsePacket}}
+
+
+Структура пакета ответа от службы датчиков (размер 13 байт).  
+
+
+
+
+{\ttfamily \#include $<$Fan\+Controller.\+h$>$}
+
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_sensor_response_packet_a4dc5c6d1524ee06a5a51e19ceb4b629a}\label{struct_sensor_response_packet_a4dc5c6d1524ee06a5a51e19ceb4b629a} 
+uint8\+\_\+t {\bfseries header} \mbox{[}5\mbox{]}
+\begin{DoxyCompactList}\small\item\em Служебный заголовок ответа от службы (5 байт). \end{DoxyCompactList}\item 
+\Hypertarget{struct_sensor_response_packet_af7287fa77858513a5a4dfab5d11bd3a5}\label{struct_sensor_response_packet_af7287fa77858513a5a4dfab5d11bd3a5} 
+uint64\+\_\+t {\bfseries payload}
+\begin{DoxyCompactList}\small\item\em Полезная нагрузка с показаниями датчика (8 байт). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура пакета ответа от службы датчиков (размер 13 байт). 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Core/include/Fan\+Controller.\+h\end{DoxyCompactItemize}

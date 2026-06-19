@@ -1,0 +1,34 @@
+\doxysection{Структура Fan\+Command\+Packet}
+\hypertarget{struct_fan_command_packet}{}\label{struct_fan_command_packet}\index{FanCommandPacket@{FanCommandPacket}}
+
+
+Структура пакета команды для управления вентилятором (размер 15 байт).  
+
+
+
+
+{\ttfamily \#include $<$Fan\+Controller.\+h$>$}
+
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_fan_command_packet_a92fdb09ab40b4cbb7c93438808b2fef7}\label{struct_fan_command_packet_a92fdb09ab40b4cbb7c93438808b2fef7} 
+uint16\+\_\+t {\bfseries command\+Code} = 16
+\begin{DoxyCompactList}\small\item\em Код команды службы (всегда 16). \end{DoxyCompactList}\item 
+\Hypertarget{struct_fan_command_packet_a4206127e52ff49e35503babf93157688}\label{struct_fan_command_packet_a4206127e52ff49e35503babf93157688} 
+uint8\+\_\+t {\bfseries argument\+Count} = 1
+\begin{DoxyCompactList}\small\item\em Количество передаваемых аргументов (всегда 1). \end{DoxyCompactList}\item 
+\Hypertarget{struct_fan_command_packet_a7fe84a208577a620a08b42920d7285f4}\label{struct_fan_command_packet_a7fe84a208577a620a08b42920d7285f4} 
+uint32\+\_\+t {\bfseries argument\+Length} = 8
+\begin{DoxyCompactList}\small\item\em Размер полезной нагрузки аргумента в байтах (всегда 8 байт для uint64\+\_\+t). \end{DoxyCompactList}\item 
+\Hypertarget{struct_fan_command_packet_ac94c7c172ae574bad72ef5fe706062b8}\label{struct_fan_command_packet_ac94c7c172ae574bad72ef5fe706062b8} 
+uint64\+\_\+t {\bfseries payload}
+\begin{DoxyCompactList}\small\item\em Данные (упакованные вместе процент скорости и тип вентилятора). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура пакета команды для управления вентилятором (размер 15 байт). 
+
+Объявления и описания членов структуры находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Core/include/Fan\+Controller.\+h\end{DoxyCompactItemize}

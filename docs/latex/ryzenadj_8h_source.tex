@@ -1,0 +1,186 @@
+\doxysection{ryzenadj.\+h}
+\hypertarget{ryzenadj_8h_source}{}\label{ryzenadj_8h_source}\index{Core/include/ryzenadj.h@{Core/include/ryzenadj.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ SPDX-\/License-\/Identifier:\ LGPL\ */}}
+\DoxyCodeLine{00002\ \textcolor{comment}{/*\ Copyright\ (C)\ 2019\ Jiaxun\ Yang\ <jiaxun.yang@flygoat.com>\ */}}
+\DoxyCodeLine{00003\ \textcolor{comment}{/*\ RyzenAdj\ API\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ RYZENADJ\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ RYZENADJ\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ RYZENADJ\_REVISION\_VER\ 0}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ RYZENADJ\_MAJOR\_VER\ 19}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ RYZENADJ\_MINIOR\_VER\ 0}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum}\ ryzen\_family\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ WAIT\_FOR\_LOAD\ =\ -\/2,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ FAM\_UNKNOWN\ =\ -\/1,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ FAM\_RAVEN\ =\ 0,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ FAM\_PICASSO,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ FAM\_RENOIR,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ FAM\_CEZANNE,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ FAM\_DALI,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ FAM\_LUCIENNE,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ FAM\_VANGOGH,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ FAM\_REMBRANDT,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ FAM\_MENDOCINO,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ FAM\_PHOENIX,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ FAM\_HAWKPOINT,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ FAM\_DRAGONRANGE,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ FAM\_KRACKANPOINT,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ FAM\_STRIXPOINT,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ FAM\_STRIXHALO,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ FAM\_FIRERANGE,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ FAM\_END}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifdef\ \_LIBRYZENADJ\_INTERNAL}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ \ "{}ryzenadj\_priv.h"{}}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ EXP\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ CALL\ \_\_stdcall}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ EXP\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ CALL}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ EXP\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ CALL\ \_\_stdcall}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ EXP}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ CALL}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{struct\ }\_ryzen\_access;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ ADJ\_ERR\_FAM\_UNSUPPORTED\ \ \ \ \ \ -\/1}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ ADJ\_ERR\_SMU\_TIMEOUT\ \ \ \ \ \ \ \ \ \ -\/2}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ ADJ\_ERR\_SMU\_UNSUPPORTED\ \ \ \ \ \ -\/3}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ ADJ\_ERR\_SMU\_REJECTED\ \ \ \ \ \ \ \ \ -\/4}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ ADJ\_ERR\_MEMORY\_ACCESS\ \ \ \ \ \ \ \ -\/5}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_ryzen\_access\ *ryzen\_access;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ EXP\ ryzen\_access\ CALL\ init\_ryzenadj();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ EXP\ \textcolor{keywordtype}{void}\ CALL\ cleanup\_ryzenadj(ryzen\_access\ ry);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ EXP\ \textcolor{keyword}{enum}\ ryzen\_family\ get\_cpu\_family(ryzen\_access\ ry);}
+\DoxyCodeLine{00074\ EXP\ \textcolor{keywordtype}{int}\ get\_bios\_if\_ver(ryzen\_access\ ry);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ EXP\ \textcolor{keywordtype}{int}\ CALL\ init\_table(ryzen\_access\ ry);}
+\DoxyCodeLine{00077\ EXP\ uint32\_t\ CALL\ get\_table\_ver(ryzen\_access\ ry);}
+\DoxyCodeLine{00078\ EXP\ \textcolor{keywordtype}{size\_t}\ CALL\ get\_table\_size(ryzen\_access\ ry);}
+\DoxyCodeLine{00079\ EXP\ \textcolor{keywordtype}{float}*\ CALL\ get\_table\_values(ryzen\_access\ ry);}
+\DoxyCodeLine{00080\ EXP\ \textcolor{keywordtype}{int}\ CALL\ refresh\_table(ryzen\_access\ ry);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_stapm\_limit(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00083\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_fast\_limit(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00084\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_slow\_limit(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00085\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_slow\_time(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00086\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_stapm\_time(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00087\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_tctl\_temp(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00088\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrm\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00089\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrmsoc\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00090\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrmgfx\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00091\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrmcvip\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00092\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrmmax\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00093\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrmgfxmax\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00094\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_vrmsocmax\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00095\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_psi0\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00096\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_psi3cpu\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00097\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_psi0soc\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00098\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_psi3gfx\_current(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00099\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_max\_gfxclk\_freq(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00100\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_min\_gfxclk\_freq(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00101\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_max\_socclk\_freq(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00102\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_min\_socclk\_freq(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00103\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_max\_fclk\_freq(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00104\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_min\_fclk\_freq(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00105\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_max\_vcn(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00106\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_min\_vcn(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00107\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_max\_lclk(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00108\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_min\_lclk(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00109\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_prochot\_deassertion\_ramp(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00110\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_apu\_skin\_temp\_limit(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00111\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_dgpu\_skin\_temp\_limit(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00112\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_apu\_slow\_limit(ryzen\_access,\ uint32\_t\ value);}
+\DoxyCodeLine{00113\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_skin\_temp\_power\_limit(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00114\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_gfx\_clk(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00115\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_oc\_clk(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00116\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_per\_core\_oc\_clk(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00117\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_oc\_volt(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00118\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_disable\_oc(ryzen\_access\ ry);}
+\DoxyCodeLine{00119\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_enable\_oc(ryzen\_access\ ry);}
+\DoxyCodeLine{00120\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_power\_saving(ryzen\_access\ ry);}
+\DoxyCodeLine{00121\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_max\_performance(ryzen\_access\ ry);}
+\DoxyCodeLine{00122\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_coall(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00123\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_coper(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00124\ EXP\ \textcolor{keywordtype}{int}\ CALL\ set\_cogfx(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_stapm\_limit(ryzen\_access\ ry);}
+\DoxyCodeLine{00127\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_stapm\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00128\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_fast\_limit(ryzen\_access\ ry);}
+\DoxyCodeLine{00129\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_fast\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00130\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_slow\_limit(ryzen\_access\ ry);}
+\DoxyCodeLine{00131\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_slow\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00132\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_apu\_slow\_limit(ryzen\_access\ ry);}
+\DoxyCodeLine{00133\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_apu\_slow\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00134\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrm\_current(ryzen\_access\ ry);}
+\DoxyCodeLine{00135\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrm\_current\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00136\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrmsoc\_current(ryzen\_access\ ry);}
+\DoxyCodeLine{00137\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrmsoc\_current\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00138\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrmmax\_current(ryzen\_access\ ry);}
+\DoxyCodeLine{00139\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrmmax\_current\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00140\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrmsocmax\_current(ryzen\_access\ ry);}
+\DoxyCodeLine{00141\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_vrmsocmax\_current\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00142\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_tctl\_temp(ryzen\_access\ ry);}
+\DoxyCodeLine{00143\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_tctl\_temp\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00144\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_apu\_skin\_temp\_limit(ryzen\_access\ ry);}
+\DoxyCodeLine{00145\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_apu\_skin\_temp\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00146\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_dgpu\_skin\_temp\_limit(ryzen\_access\ ry);}
+\DoxyCodeLine{00147\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_dgpu\_skin\_temp\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00148\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_psi0\_current(ryzen\_access\ ry);}
+\DoxyCodeLine{00149\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_psi0soc\_current(ryzen\_access\ ry);}
+\DoxyCodeLine{00150\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_stapm\_time(ryzen\_access\ ry);}
+\DoxyCodeLine{00151\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_slow\_time(ryzen\_access\ ry);}
+\DoxyCodeLine{00152\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_cclk\_setpoint(ryzen\_access\ ry);}
+\DoxyCodeLine{00153\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_cclk\_busy\_value(ryzen\_access\ ry);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_core\_clk(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00156\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_core\_volt(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00157\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_core\_power(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00158\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_core\_temp(ryzen\_access\ ry,\ uint32\_t\ value);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_l3\_clk(ryzen\_access\ ry);}
+\DoxyCodeLine{00161\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_l3\_logic(ryzen\_access\ ry);}
+\DoxyCodeLine{00162\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_l3\_vddm(ryzen\_access\ ry);}
+\DoxyCodeLine{00163\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_l3\_temp(ryzen\_access\ ry);}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_gfx\_clk(ryzen\_access\ ry);}
+\DoxyCodeLine{00166\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_gfx\_temp(ryzen\_access\ ry);}
+\DoxyCodeLine{00167\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_gfx\_volt(ryzen\_access\ ry);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_mem\_clk(ryzen\_access\ ry);}
+\DoxyCodeLine{00170\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_fclk(ryzen\_access\ ry);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_soc\_power(ryzen\_access\ ry);}
+\DoxyCodeLine{00173\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_soc\_volt(ryzen\_access\ ry);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ EXP\ \textcolor{keywordtype}{float}\ CALL\ get\_socket\_power(ryzen\_access\ ry);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00178\ \}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,180 @@
+\doxysection{Класс Fan\+Controller}
+\hypertarget{class_fan_controller}{}\label{class_fan_controller}\index{FanController@{FanController}}
+
+
+Класс для управления вентиляторами и их мониторинга для ноутбуков Acer Nitro 5 AN515-\/45 (Ryzen 5 5600H RTX 3060).  
+
+
+
+
+{\ttfamily \#include $<$Fan\+Controller.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fan_controller_a97e06dcf38804d73ea0fa38a2bd56412}{Set\+Cpu\+Fan\+Speed}} (DWORD percentage)
+\begin{DoxyCompactList}\small\item\em Установка скорости оборотов вентилятора процессора (CPU). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fan_controller_a9d52d633e123e839d43b16bc37aecf4e}{Set\+Gpu\+Fan\+Speed}} (DWORD percentage)
+\begin{DoxyCompactList}\small\item\em Установка скорости оборотов вентилятора дискретной видеокарты (GPU). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fan_controller_a9e770d66cc8108f78d4d6f1b40f6f34a}{Set\+Fan\+Mode}} (int mode)
+\begin{DoxyCompactList}\small\item\em Установка режима работы вентиляторов ноутбука (Custom, Max). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_fan_controller_a6e20b33d0ea8b5024565e937fe768fd2}{Get\+Cpu\+Fan\+RPM}} ()
+\begin{DoxyCompactList}\small\item\em Получение текущей реальной скорости вращения вентилятора процессора \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_fan_controller_a4d601690cca316bc5dac04d7dcef8b52}{Get\+Gpu\+Fan\+RPM}} ()
+\begin{DoxyCompactList}\small\item\em Получение текущей реальной скорости вращения вентилятора дискретной видеокарты \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fan_controller_a72ea07e89426bb33c67b71397dd77cb6}{Apply\+Changes\+Via\+Pipe}} (Fan\+Type fan\+Type, DWORD percent)
+\begin{DoxyCompactList}\small\item\em Отправка команды на применение скорости вентилятора через именованный канал \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для управления вентиляторами и их мониторинга для ноутбуков Acer Nitro 5 AN515-\/45 (Ryzen 5 5600H RTX 3060). 
+
+Управляет оборотами через запись в реестр HKLM\textbackslash{}\+SOFTWARE\textbackslash{}\+OEM\textbackslash{}\+Nitro\+Sense\textbackslash{}\+Fan\+Control и отправку структурированных команд службе PSsvc через именованный канал Идея реализации базируется на решениях проекте Nitro\+Sensual от KRWCLASSIC \begin{DoxySeeAlso}{См. также}
+\href{https://github.com/KRWCLASSIC/NitroSensual}{\texttt{https\+://github.\+com/\+KRWCLASSIC/\+Nitro\+Sensual}} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{class_fan_controller_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_fan_controller_a72ea07e89426bb33c67b71397dd77cb6}\index{FanController@{FanController}!ApplyChangesViaPipe@{ApplyChangesViaPipe}}
+\index{ApplyChangesViaPipe@{ApplyChangesViaPipe}!FanController@{FanController}}
+\doxysubsubsection{\texorpdfstring{ApplyChangesViaPipe()}{ApplyChangesViaPipe()}}
+{\footnotesize\ttfamily \label{class_fan_controller_a72ea07e89426bb33c67b71397dd77cb6} 
+bool Fan\+Controller\+::\+Apply\+Changes\+Via\+Pipe (\begin{DoxyParamCaption}\item[{Fan\+Type}]{fan\+Type}{, }\item[{DWORD}]{percent}{}\end{DoxyParamCaption})}
+
+
+
+Отправка команды на применение скорости вентилятора через именованный канал 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em fan\+Type} & Тип целевого вентилятора (CPU или GPU) \\
+\hline
+{\em percent} & Скорость вращения в процентах (0-\/100)\%\\
+\hline
+\end{DoxyParams}
+Упаковывает параметры в 64-\/битную нагрузку, формирует структуру \doxylink{struct_fan_command_packet}{Fan\+Command\+Packet} (15 байт) и отправляет её в канал \textbackslash{}.\textbackslash{}pipe\textbackslash{}\+Predator\+Sense\+\_\+service\+\_\+namedpipe. Считывает 9-\/байтовый ответ \begin{DoxyReturn}{Возвращает}
+true, если пакет был успешно записан в канал. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_fan_controller_a6e20b33d0ea8b5024565e937fe768fd2}\index{FanController@{FanController}!GetCpuFanRPM@{GetCpuFanRPM}}
+\index{GetCpuFanRPM@{GetCpuFanRPM}!FanController@{FanController}}
+\doxysubsubsection{\texorpdfstring{GetCpuFanRPM()}{GetCpuFanRPM()}}
+{\footnotesize\ttfamily \label{class_fan_controller_a6e20b33d0ea8b5024565e937fe768fd2} 
+int Fan\+Controller\+::\+Get\+Cpu\+Fan\+RPM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение текущей реальной скорости вращения вентилятора процессора 
+
+Считывает актуальные показания тахометра CPU (индекс датчика 2) через именованный канал службы \begin{DoxyReturn}{Возвращает}
+Текущая скорость в оборотах в минуту (RPM), либо -\/1 при ошибке связи со службой 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_fan_controller_a4d601690cca316bc5dac04d7dcef8b52}\index{FanController@{FanController}!GetGpuFanRPM@{GetGpuFanRPM}}
+\index{GetGpuFanRPM@{GetGpuFanRPM}!FanController@{FanController}}
+\doxysubsubsection{\texorpdfstring{GetGpuFanRPM()}{GetGpuFanRPM()}}
+{\footnotesize\ttfamily \label{class_fan_controller_a4d601690cca316bc5dac04d7dcef8b52} 
+int Fan\+Controller\+::\+Get\+Gpu\+Fan\+RPM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Получение текущей реальной скорости вращения вентилятора дискретной видеокарты 
+
+Считывает актуальные показания тахометра GPU (индекс датчика 6) через именованный канал службы \begin{DoxyReturn}{Возвращает}
+Текущая скорость в оборотах в минуту (RPM), либо -\/1 при ошибке связи со службой 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_fan_controller_a97e06dcf38804d73ea0fa38a2bd56412}\index{FanController@{FanController}!SetCpuFanSpeed@{SetCpuFanSpeed}}
+\index{SetCpuFanSpeed@{SetCpuFanSpeed}!FanController@{FanController}}
+\doxysubsubsection{\texorpdfstring{SetCpuFanSpeed()}{SetCpuFanSpeed()}}
+{\footnotesize\ttfamily \label{class_fan_controller_a97e06dcf38804d73ea0fa38a2bd56412} 
+bool Fan\+Controller\+::\+Set\+Cpu\+Fan\+Speed (\begin{DoxyParamCaption}\item[{DWORD}]{percentage}{}\end{DoxyParamCaption})}
+
+
+
+Установка скорости оборотов вентилятора процессора (CPU). 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em percentage} & Скорость вращения в процентах (0-\/100)\%\\
+\hline
+\end{DoxyParams}
+Записывает значение в реестр под именем "{}\+CPUFan\+Percentage"{} и мгновенно применяет его, отправляя команду через именованный канал \begin{DoxyReturn}{Возвращает}
+true, если значение успешно записано и передано службе; иначе false 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Настройка применится аппаратно только в том случае, если в Nitro\+Sense выбран режим работы "{}\+Custom"{} 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_fan_controller_a9e770d66cc8108f78d4d6f1b40f6f34a}\index{FanController@{FanController}!SetFanMode@{SetFanMode}}
+\index{SetFanMode@{SetFanMode}!FanController@{FanController}}
+\doxysubsubsection{\texorpdfstring{SetFanMode()}{SetFanMode()}}
+{\footnotesize\ttfamily \label{class_fan_controller_a9e770d66cc8108f78d4d6f1b40f6f34a} 
+bool Fan\+Controller\+::\+Set\+Fan\+Mode (\begin{DoxyParamCaption}\item[{int}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Установка режима работы вентиляторов ноутбука (Custom, Max). 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em mode} & Режим работы\+: 1 -\/ Custom, 2 -\/ Max\\
+\hline
+\end{DoxyParams}
+Изменяет значение "{}\+Current\+Fan\+Mode"{} в реестре и отправляет пакеты инициализации выбранного режима обоим вентиляторам через именованный канал \begin{DoxyReturn}{Возвращает}
+true, если режим успешно изменен; false при передаче недопустимого значения режима 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_fan_controller_a9d52d633e123e839d43b16bc37aecf4e}\index{FanController@{FanController}!SetGpuFanSpeed@{SetGpuFanSpeed}}
+\index{SetGpuFanSpeed@{SetGpuFanSpeed}!FanController@{FanController}}
+\doxysubsubsection{\texorpdfstring{SetGpuFanSpeed()}{SetGpuFanSpeed()}}
+{\footnotesize\ttfamily \label{class_fan_controller_a9d52d633e123e839d43b16bc37aecf4e} 
+bool Fan\+Controller\+::\+Set\+Gpu\+Fan\+Speed (\begin{DoxyParamCaption}\item[{DWORD}]{percentage}{}\end{DoxyParamCaption})}
+
+
+
+Установка скорости оборотов вентилятора дискретной видеокарты (GPU). 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em percentage} & Скорость вращения в процентах (0-\/100)\%\\
+\hline
+\end{DoxyParams}
+Записывает значение в реестр под именем "{}\+GPU1\+Fan\+Percentage"{} и мгновенно применяет его, отправляя команду через именованный канал \begin{DoxyReturn}{Возвращает}
+true, если значение успешно записано и передано службе; иначе false 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Предупреждения}
+Настройка применится аппаратно только в том случае, если в Nitro\+Sense выбран режим работы "{}\+Custom"{} 
+\end{DoxyWarning}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::exception} & Ошибки логируются в std\+::cerr, а в качестве результата возвращается false \\
+\hline
+\end{DoxyExceptions}
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Core/include/Fan\+Controller.\+h\end{DoxyCompactItemize}

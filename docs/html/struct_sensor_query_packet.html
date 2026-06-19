@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ConSys: Структура SensorQueryPacket</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ConSys
+   </div>
+   <div id="projectbrief">Утилита для ноутбука Acer Nitro 5 AN515-45 (Ryzen 5 5600H RTX 3060)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('struct_sensor_query_packet.html','','struct_sensor_query_packet-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Структура SensorQueryPacket</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Структура пакета запроса данных датчиков системы (размер 11 байт).  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_fan_controller_8h_source.html">FanController.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:af6ed341f1875fd8ac15d10a05a0a48dc" id="r_af6ed341f1875fd8ac15d10a05a0a48dc"><td class="memItemLeft" align="right" valign="top"><a id="af6ed341f1875fd8ac15d10a05a0a48dc" name="af6ed341f1875fd8ac15d10a05a0a48dc"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>commandCode</b> = 13</td></tr>
+<tr class="memdesc:af6ed341f1875fd8ac15d10a05a0a48dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Код команды службы (всегда 13). <br /></td></tr>
+<tr class="memitem:a7e146040f544b95975e221424aa87717" id="r_a7e146040f544b95975e221424aa87717"><td class="memItemLeft" align="right" valign="top"><a id="a7e146040f544b95975e221424aa87717" name="a7e146040f544b95975e221424aa87717"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>argumentCount</b> = 1</td></tr>
+<tr class="memdesc:a7e146040f544b95975e221424aa87717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество аргументов (всегда 1). <br /></td></tr>
+<tr class="memitem:a36bd82d04566a1a19d60d711157f56f6" id="r_a36bd82d04566a1a19d60d711157f56f6"><td class="memItemLeft" align="right" valign="top"><a id="a36bd82d04566a1a19d60d711157f56f6" name="a36bd82d04566a1a19d60d711157f56f6"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>argumentLength</b> = 4</td></tr>
+<tr class="memdesc:a36bd82d04566a1a19d60d711157f56f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Размер аргумента в байтах (всегда 4 байта для uint32_t). <br /></td></tr>
+<tr class="memitem:a28ea7ec876e0c6e2c125a61b74be3bb1" id="r_a28ea7ec876e0c6e2c125a61b74be3bb1"><td class="memItemLeft" align="right" valign="top"><a id="a28ea7ec876e0c6e2c125a61b74be3bb1" name="a28ea7ec876e0c6e2c125a61b74be3bb1"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>payload</b></td></tr>
+<tr class="memdesc:a28ea7ec876e0c6e2c125a61b74be3bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Данные запроса (код датчика). <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Структура пакета запроса данных датчиков системы (размер 11 байт). </p>
+</div><hr/>Объявления и описания членов структуры находятся в файле:<ul>
+<li>Core/include/<a class="el" href="_fan_controller_8h_source.html">FanController.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="struct_sensor_query_packet.html">SensorQueryPacket</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
