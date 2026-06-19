@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ConSys: Исходный файл Core/include/FanController.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ConSys
+   </div>
+   <div id="projectbrief">Утилита для ноутбука Acer Nitro 5 AN515-45 (Ryzen 5 5600H RTX 3060)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('_fan_controller_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">FanController.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FanController_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FanController_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">enum class</span> FanType {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    CPU = 1, </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    GPU = 4  </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#pragma pack(push, 1)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="struct_fan_command_packet.html">   24</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_fan_command_packet.html">FanCommandPacket</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_fan_command_packet.html#a92fdb09ab40b4cbb7c93438808b2fef7">   25</a></span>    uint16_t <a class="code hl_variable" href="struct_fan_command_packet.html#a92fdb09ab40b4cbb7c93438808b2fef7">commandCode</a> = 16; </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_fan_command_packet.html#a4206127e52ff49e35503babf93157688">   26</a></span>    uint8_t <a class="code hl_variable" href="struct_fan_command_packet.html#a4206127e52ff49e35503babf93157688">argumentCount</a> = 1; </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_fan_command_packet.html#a7fe84a208577a620a08b42920d7285f4">   27</a></span>    uint32_t <a class="code hl_variable" href="struct_fan_command_packet.html#a7fe84a208577a620a08b42920d7285f4">argumentLength</a> = 8; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_fan_command_packet.html#ac94c7c172ae574bad72ef5fe706062b8">   28</a></span>    uint64_t <a class="code hl_variable" href="struct_fan_command_packet.html#ac94c7c172ae574bad72ef5fe706062b8">payload</a>; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_sensor_query_packet.html">   35</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_sensor_query_packet.html">SensorQueryPacket</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_sensor_query_packet.html#af6ed341f1875fd8ac15d10a05a0a48dc">   36</a></span>    uint16_t <a class="code hl_variable" href="struct_sensor_query_packet.html#af6ed341f1875fd8ac15d10a05a0a48dc">commandCode</a> = 13; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_sensor_query_packet.html#a7e146040f544b95975e221424aa87717">   37</a></span>    uint8_t <a class="code hl_variable" href="struct_sensor_query_packet.html#a7e146040f544b95975e221424aa87717">argumentCount</a> = 1; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_sensor_query_packet.html#a36bd82d04566a1a19d60d711157f56f6">   38</a></span>    uint32_t <a class="code hl_variable" href="struct_sensor_query_packet.html#a36bd82d04566a1a19d60d711157f56f6">argumentLength</a> = 4; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_sensor_query_packet.html#a28ea7ec876e0c6e2c125a61b74be3bb1">   39</a></span>    uint32_t <a class="code hl_variable" href="struct_sensor_query_packet.html#a28ea7ec876e0c6e2c125a61b74be3bb1">payload</a>; </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_sensor_response_packet.html">   46</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_sensor_response_packet.html">SensorResponsePacket</a> {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_sensor_response_packet.html#a4dc5c6d1524ee06a5a51e19ceb4b629a">   47</a></span>    uint8_t <a class="code hl_variable" href="struct_sensor_response_packet.html#a4dc5c6d1524ee06a5a51e19ceb4b629a">header</a>[5]; </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_sensor_response_packet.html#af7287fa77858513a5a4dfab5d11bd3a5">   48</a></span>    uint64_t <a class="code hl_variable" href="struct_sensor_response_packet.html#af7287fa77858513a5a4dfab5d11bd3a5">payload</a>; </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#pragma pack(pop)</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_fan_controller.html">   61</a></span><span class="keyword">class </span><a class="code hl_class" href="class_fan_controller.html">FanController</a> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_fan_controller.html#a97e06dcf38804d73ea0fa38a2bd56412">   72</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_fan_controller.html#a97e06dcf38804d73ea0fa38a2bd56412">SetCpuFanSpeed</a>(DWORD percentage);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_fan_controller.html#a9d52d633e123e839d43b16bc37aecf4e">   83</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_fan_controller.html#a9d52d633e123e839d43b16bc37aecf4e">SetGpuFanSpeed</a>(DWORD percentage);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="class_fan_controller.html#a9e770d66cc8108f78d4d6f1b40f6f34a">   93</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_fan_controller.html#a9e770d66cc8108f78d4d6f1b40f6f34a">SetFanMode</a>(<span class="keywordtype">int</span> mode);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="class_fan_controller.html#a6e20b33d0ea8b5024565e937fe768fd2">  101</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_fan_controller.html#a6e20b33d0ea8b5024565e937fe768fd2">GetCpuFanRPM</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="class_fan_controller.html#a4d601690cca316bc5dac04d7dcef8b52">  109</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_fan_controller.html#a4d601690cca316bc5dac04d7dcef8b52">GetGpuFanRPM</a>();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_fan_controller.html#a72ea07e89426bb33c67b71397dd77cb6">  120</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_fan_controller.html#a72ea07e89426bb33c67b71397dd77cb6">ApplyChangesViaPipe</a>(FanType fanType, DWORD percent);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">const</span> std::wstring regPath = L<span class="stringliteral">&quot;SOFTWARE\\OEM\\NitroSense\\FanControl&quot;</span>; </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::optional&lt;int&gt; GetSystemHealthValue(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>};</div>
+</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_fan_controller_html"><div class="ttname"><a href="class_fan_controller.html">FanController</a></div><div class="ttdoc">Класс для управления вентиляторами и их мониторинга для ноутбуков Acer Nitro 5 AN515-45 (Ryzen 5 5600...</div><div class="ttdef"><b>Определения</b> FanController.h:61</div></div>
+<div class="ttc" id="aclass_fan_controller_html_a4d601690cca316bc5dac04d7dcef8b52"><div class="ttname"><a href="class_fan_controller.html#a4d601690cca316bc5dac04d7dcef8b52">FanController::GetGpuFanRPM</a></div><div class="ttdeci">int GetGpuFanRPM()</div><div class="ttdoc">Получение текущей реальной скорости вращения вентилятора дискретной видеокарты</div></div>
+<div class="ttc" id="aclass_fan_controller_html_a6e20b33d0ea8b5024565e937fe768fd2"><div class="ttname"><a href="class_fan_controller.html#a6e20b33d0ea8b5024565e937fe768fd2">FanController::GetCpuFanRPM</a></div><div class="ttdeci">int GetCpuFanRPM()</div><div class="ttdoc">Получение текущей реальной скорости вращения вентилятора процессора</div></div>
+<div class="ttc" id="aclass_fan_controller_html_a72ea07e89426bb33c67b71397dd77cb6"><div class="ttname"><a href="class_fan_controller.html#a72ea07e89426bb33c67b71397dd77cb6">FanController::ApplyChangesViaPipe</a></div><div class="ttdeci">bool ApplyChangesViaPipe(FanType fanType, DWORD percent)</div><div class="ttdoc">Отправка команды на применение скорости вентилятора через именованный канал</div></div>
+<div class="ttc" id="aclass_fan_controller_html_a97e06dcf38804d73ea0fa38a2bd56412"><div class="ttname"><a href="class_fan_controller.html#a97e06dcf38804d73ea0fa38a2bd56412">FanController::SetCpuFanSpeed</a></div><div class="ttdeci">bool SetCpuFanSpeed(DWORD percentage)</div><div class="ttdoc">Установка скорости оборотов вентилятора процессора (CPU).</div></div>
+<div class="ttc" id="aclass_fan_controller_html_a9d52d633e123e839d43b16bc37aecf4e"><div class="ttname"><a href="class_fan_controller.html#a9d52d633e123e839d43b16bc37aecf4e">FanController::SetGpuFanSpeed</a></div><div class="ttdeci">bool SetGpuFanSpeed(DWORD percentage)</div><div class="ttdoc">Установка скорости оборотов вентилятора дискретной видеокарты (GPU).</div></div>
+<div class="ttc" id="aclass_fan_controller_html_a9e770d66cc8108f78d4d6f1b40f6f34a"><div class="ttname"><a href="class_fan_controller.html#a9e770d66cc8108f78d4d6f1b40f6f34a">FanController::SetFanMode</a></div><div class="ttdeci">bool SetFanMode(int mode)</div><div class="ttdoc">Установка режима работы вентиляторов ноутбука (Custom, Max).</div></div>
+<div class="ttc" id="astruct_fan_command_packet_html"><div class="ttname"><a href="struct_fan_command_packet.html">FanCommandPacket</a></div><div class="ttdoc">Структура пакета команды для управления вентилятором (размер 15 байт).</div><div class="ttdef"><b>Определения</b> FanController.h:24</div></div>
+<div class="ttc" id="astruct_fan_command_packet_html_a4206127e52ff49e35503babf93157688"><div class="ttname"><a href="struct_fan_command_packet.html#a4206127e52ff49e35503babf93157688">FanCommandPacket::argumentCount</a></div><div class="ttdeci">uint8_t argumentCount</div><div class="ttdoc">Количество передаваемых аргументов (всегда 1).</div><div class="ttdef"><b>Определения</b> FanController.h:26</div></div>
+<div class="ttc" id="astruct_fan_command_packet_html_a7fe84a208577a620a08b42920d7285f4"><div class="ttname"><a href="struct_fan_command_packet.html#a7fe84a208577a620a08b42920d7285f4">FanCommandPacket::argumentLength</a></div><div class="ttdeci">uint32_t argumentLength</div><div class="ttdoc">Размер полезной нагрузки аргумента в байтах (всегда 8 байт для uint64_t).</div><div class="ttdef"><b>Определения</b> FanController.h:27</div></div>
+<div class="ttc" id="astruct_fan_command_packet_html_a92fdb09ab40b4cbb7c93438808b2fef7"><div class="ttname"><a href="struct_fan_command_packet.html#a92fdb09ab40b4cbb7c93438808b2fef7">FanCommandPacket::commandCode</a></div><div class="ttdeci">uint16_t commandCode</div><div class="ttdoc">Код команды службы (всегда 16).</div><div class="ttdef"><b>Определения</b> FanController.h:25</div></div>
+<div class="ttc" id="astruct_fan_command_packet_html_ac94c7c172ae574bad72ef5fe706062b8"><div class="ttname"><a href="struct_fan_command_packet.html#ac94c7c172ae574bad72ef5fe706062b8">FanCommandPacket::payload</a></div><div class="ttdeci">uint64_t payload</div><div class="ttdoc">Данные (упакованные вместе процент скорости и тип вентилятора).</div><div class="ttdef"><b>Определения</b> FanController.h:28</div></div>
+<div class="ttc" id="astruct_sensor_query_packet_html"><div class="ttname"><a href="struct_sensor_query_packet.html">SensorQueryPacket</a></div><div class="ttdoc">Структура пакета запроса данных датчиков системы (размер 11 байт).</div><div class="ttdef"><b>Определения</b> FanController.h:35</div></div>
+<div class="ttc" id="astruct_sensor_query_packet_html_a28ea7ec876e0c6e2c125a61b74be3bb1"><div class="ttname"><a href="struct_sensor_query_packet.html#a28ea7ec876e0c6e2c125a61b74be3bb1">SensorQueryPacket::payload</a></div><div class="ttdeci">uint32_t payload</div><div class="ttdoc">Данные запроса (код датчика).</div><div class="ttdef"><b>Определения</b> FanController.h:39</div></div>
+<div class="ttc" id="astruct_sensor_query_packet_html_a36bd82d04566a1a19d60d711157f56f6"><div class="ttname"><a href="struct_sensor_query_packet.html#a36bd82d04566a1a19d60d711157f56f6">SensorQueryPacket::argumentLength</a></div><div class="ttdeci">uint32_t argumentLength</div><div class="ttdoc">Размер аргумента в байтах (всегда 4 байта для uint32_t).</div><div class="ttdef"><b>Определения</b> FanController.h:38</div></div>
+<div class="ttc" id="astruct_sensor_query_packet_html_a7e146040f544b95975e221424aa87717"><div class="ttname"><a href="struct_sensor_query_packet.html#a7e146040f544b95975e221424aa87717">SensorQueryPacket::argumentCount</a></div><div class="ttdeci">uint8_t argumentCount</div><div class="ttdoc">Количество аргументов (всегда 1).</div><div class="ttdef"><b>Определения</b> FanController.h:37</div></div>
+<div class="ttc" id="astruct_sensor_query_packet_html_af6ed341f1875fd8ac15d10a05a0a48dc"><div class="ttname"><a href="struct_sensor_query_packet.html#af6ed341f1875fd8ac15d10a05a0a48dc">SensorQueryPacket::commandCode</a></div><div class="ttdeci">uint16_t commandCode</div><div class="ttdoc">Код команды службы (всегда 13).</div><div class="ttdef"><b>Определения</b> FanController.h:36</div></div>
+<div class="ttc" id="astruct_sensor_response_packet_html"><div class="ttname"><a href="struct_sensor_response_packet.html">SensorResponsePacket</a></div><div class="ttdoc">Структура пакета ответа от службы датчиков (размер 13 байт).</div><div class="ttdef"><b>Определения</b> FanController.h:46</div></div>
+<div class="ttc" id="astruct_sensor_response_packet_html_a4dc5c6d1524ee06a5a51e19ceb4b629a"><div class="ttname"><a href="struct_sensor_response_packet.html#a4dc5c6d1524ee06a5a51e19ceb4b629a">SensorResponsePacket::header</a></div><div class="ttdeci">uint8_t header[5]</div><div class="ttdoc">Служебный заголовок ответа от службы (5 байт).</div><div class="ttdef"><b>Определения</b> FanController.h:47</div></div>
+<div class="ttc" id="astruct_sensor_response_packet_html_af7287fa77858513a5a4dfab5d11bd3a5"><div class="ttname"><a href="struct_sensor_response_packet.html#af7287fa77858513a5a4dfab5d11bd3a5">SensorResponsePacket::payload</a></div><div class="ttdeci">uint64_t payload</div><div class="ttdoc">Полезная нагрузка с показаниями датчика (8 байт).</div><div class="ttdef"><b>Определения</b> FanController.h:48</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>Core</b></li><li class="navelem"><b>include</b></li><li class="navelem"><b>FanController.h</b></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>

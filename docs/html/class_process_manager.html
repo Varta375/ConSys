@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ConSys: Класс ProcessManager</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ConSys
+   </div>
+   <div id="projectbrief">Утилита для ноутбука Acer Nitro 5 AN515-45 (Ryzen 5 5600H RTX 3060)</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_process_manager.html','','class_process_manager-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс ProcessManager</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для создания снимка действующих процессов системы  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_process_manager_8h_source.html">ProcessManager.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:afd359b0a1a4dcdb278bbae3a37fbcccc" id="r_afd359b0a1a4dcdb278bbae3a37fbcccc"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="struct_process_info.html">ProcessInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd359b0a1a4dcdb278bbae3a37fbcccc">Refresh</a> ()</td></tr>
+<tr class="memdesc:afd359b0a1a4dcdb278bbae3a37fbcccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отвечает за получение списка процессов и его обновление  <br /></td></tr>
+<tr class="memitem:ab29f75e62f06c4f00edac4c23d36d079" id="r_ab29f75e62f06c4f00edac4c23d36d079"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="struct_process_info.html">ProcessInfo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab29f75e62f06c4f00edac4c23d36d079">GetList</a> (bool refresh=false)</td></tr>
+<tr class="memdesc:ab29f75e62f06c4f00edac4c23d36d079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отвечает за получение списка процессов системы  <br /></td></tr>
+<tr class="memitem:a31fc250c6ef6f1c2efd52fde275fc016" id="r_a31fc250c6ef6f1c2efd52fde275fc016"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31fc250c6ef6f1c2efd52fde275fc016">StopProcess</a> (DWORD pid)</td></tr>
+<tr class="memdesc:a31fc250c6ef6f1c2efd52fde275fc016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отвечает за двухэтапное завершение процесса (мягкое и жесткое закрытие, с таймаутом).  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для создания снимка действующих процессов системы </p>
+<p>Программа использует библиотеку Windows.h для создания снимка системы. Позволяет получать список процессов и обновлять его при необходимости. Кроме того, существует возможность приостановить процесс (плавно, с таймаутом) из списка. </p><dl class="section warning"><dt>Предупреждения</dt><dd>Приостановка процесса некоторых программ (например, вида UWP) не сработает по причине его передачи ApplicationFrameHost.exe. При его закрытии закроются все зависимые от него программы. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a href="https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide">https://learn.microsoft.com/ru-ru/windows/uwp/get-started/universal-application-platform-guide</a> </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ab29f75e62f06c4f00edac4c23d36d079" name="ab29f75e62f06c4f00edac4c23d36d079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab29f75e62f06c4f00edac4c23d36d079">&#9670;&#160;</a></span>GetList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="struct_process_info.html">ProcessInfo</a> &gt; &amp; ProcessManager::GetList </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>refresh</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отвечает за получение списка процессов системы </p>
+<p>Запускает <a class="el" href="#afd359b0a1a4dcdb278bbae3a37fbcccc" title="Отвечает за получение списка процессов и его обновление">Refresh()</a> </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">refresh</td><td>Метод возвращает кэшированный список при false или возвращает обновленный список при true </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Вектор процессов системы, прошедших фильтрацию. </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::exception</td><td>Исключения не выбрасываются наружу. Все потенциальные исключения при обновлении списка перехватываются и обрабатываются внутри метода <a class="el" href="#afd359b0a1a4dcdb278bbae3a37fbcccc" title="Отвечает за получение списка процессов и его обновление">Refresh()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd359b0a1a4dcdb278bbae3a37fbcccc" name="afd359b0a1a4dcdb278bbae3a37fbcccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd359b0a1a4dcdb278bbae3a37fbcccc">&#9670;&#160;</a></span>Refresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; <a class="el" href="struct_process_info.html">ProcessInfo</a> &gt; &amp; ProcessManager::Refresh </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отвечает за получение списка процессов и его обновление </p>
+<p>Метод создает снэпшот состояния системы путем вызова CreateToolhelp32Snapshot с флагом TH32CS_SNAPPROCESS и ID 0 (сохранение всех процессов). После этого пробегается по полученному снэпшоту, фильтрует его и сохраняет во внутренний вектор Processes. Работа кода строится на Windows API (библиотека Tool Help Library). </p><dl class="section return"><dt>Возвращает</dt><dd>Вектор процессов системы, прошедших фильтрацию. В случае критического сбоя возвращается пустой или частично заполненный вектор. </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::exception</td><td>Метод не выбрасывает данное исключение наружу. Любые возникающие стандартные исключения перехватываются внутри, выбрасываются с помощью std::cerr. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>См. также</dt><dd><a href="https://learn.microsoft.com/ru-ru/windows/win32/toolhelp/taking-a-snapshot-and-viewing-processes">https://learn.microsoft.com/ru-ru/windows/win32/toolhelp/taking-a-snapshot-and-viewing-processes</a> </dd>
+<dd>
+<a href="https://learn.microsoft.com/ru-ru/windows/win32/api/tlhelp32/nf-tlhelp32-process32first?source=recommendations">https://learn.microsoft.com/ru-ru/windows/win32/api/tlhelp32/nf-tlhelp32-process32first?source=recommendations</a> </dd>
+<dd>
+<a href="https://learn.microsoft.com/ru-ru/windows/win32/api/tlhelp32/nf-tlhelp32-process32nextw">https://learn.microsoft.com/ru-ru/windows/win32/api/tlhelp32/nf-tlhelp32-process32nextw</a> </dd>
+<dd>
+<a href="https://learn.microsoft.com/ru-ru/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte">https://learn.microsoft.com/ru-ru/windows/win32/api/stringapiset/nf-stringapiset-widechartomultibyte</a> </dd></dl>
+
+</div>
+</div>
+<a id="a31fc250c6ef6f1c2efd52fde275fc016" name="a31fc250c6ef6f1c2efd52fde275fc016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fc250c6ef6f1c2efd52fde275fc016">&#9670;&#160;</a></span>StopProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ProcessManager::StopProcess </td>
+          <td>(</td>
+          <td class="paramtype">DWORD</td>          <td class="paramname"><span class="paramname"><em>pid</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отвечает за двухэтапное завершение процесса (мягкое и жесткое закрытие, с таймаутом). </p>
+<p>Сначала ищется PID в векторе Processes. Если он нашелся, то открывается его дескриптор. PROCESS_TERMINATE отвечает за принудительное завершение процесса. Срабатывает только в том случае, если не сработает мягкое закрытие WM_CLOSE. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pid</td><td>Значение ID процесса для его приостановки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>См. также</dt><dd><a href="https://learn.microsoft.com/ru-ru/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess">https://learn.microsoft.com/ru-ru/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess</a> </dd>
+<dd>
+<a href="https://learn.microsoft.com/ru-ru/windows/win32/api/winuser/nf-winuser-enumwindows">https://learn.microsoft.com/ru-ru/windows/win32/api/winuser/nf-winuser-enumwindows</a> </dd>
+<dd>
+<a href="https://learn.microsoft.com/ru-ru/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject">https://learn.microsoft.com/ru-ru/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject</a> </dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Флаг, указывающий на успех (true) или неудачу (false) приостановки процесса. </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::exception</td><td>Метод не выбрасывает исключений наружу. Любые ошибки или исключения при обработке процесса перехватываются внутри, открытый дескриптор безопасно закрывается, а метод возвращает false. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>Core/include/<a class="el" href="_process_manager_8h_source.html">ProcessManager.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_process_manager.html">ProcessManager</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
+  </ul>
+</div>
+</body>
+</html>
