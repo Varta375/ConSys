@@ -1,5 +1,4 @@
-<img width="1704" height="673" alt="Снимок экрана 2026-06-18 014110" src="https://github.com/user-attachments/assets/747b741a-78df-4007-bdf9-c7116b04cc22" /># ConSys 
-
+# ConSys 
 Утилита мониторинга Acer Nitro 5 AN515-45 (Ryzen 5 5600H RTX 3060)
 
 ## Описание
