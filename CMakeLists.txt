@@ -8,6 +8,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
+find_package(Qt6 COMPONENTS Widgets)
+
 include(FetchContent)
 
 set(DOCTEST_WITH_TESTS OFF CACHE INTERNAL "")
@@ -30,14 +32,19 @@ add_executable(ConSys
     src/FanController.cpp
     src/PowerManager.cpp
     src/ProcessManager.cpp
+    ui/main.cpp
+    ui/consysgui.cpp
+    ui/stdafx.cpp
 )
 
 target_include_directories(ConSys PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui
     ${CMAKE_CURRENT_SOURCE_DIR}/external
 )
 
 target_link_libraries(ConSys PRIVATE
+    Qt6::Widgets
     winreg_iface        
     ${CMAKE_CURRENT_SOURCE_DIR}/external/lhwm-cpp-wrapper.lib
     mscoree.lib
@@ -55,6 +62,22 @@ if(LHM_DLLS)
         COMMAND ${CMAKE_COMMAND} -E copy_if_different ${LHM_DLLS} $<TARGET_FILE_DIR:ConSys>
     )
 endif()
+
+add_custom_command(TARGET ConSys POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_PREFIX_PATH}/bin/Qt6Widgets.dll"
+        "${CMAKE_PREFIX_PATH}/bin/Qt6Core.dll"
+        "${CMAKE_PREFIX_PATH}/bin/Qt6Gui.dll"
+        $<TARGET_FILE_DIR:ConSys>
+)
+
+add_custom_command(TARGET ConSys POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory
+        $<TARGET_FILE_DIR:ConSys>/platforms
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${CMAKE_PREFIX_PATH}/plugins/platforms/qwindows.dll"
+        $<TARGET_FILE_DIR:ConSys>/platforms
+)
 
 add_custom_command(TARGET ConSys POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
