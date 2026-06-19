@@ -31,8 +31,9 @@ Qt 6.5+ (MSVC 64-bit)
 Visual Studio 2022 (с C++ и CMake)
 
 ### Установка
+Первый вариант: перейти в раздел Releases и скачать оттуда zip-папку
 
-Склонируйте репозиторий:
+Второй вариант, склонируйте репозиторий:
 ```bash
 git clone https://github.com/Varta375/ConSys.git
 cd ConSys
@@ -73,3 +74,7 @@ Windows 11
 [Документация Doxygen](docs/html/index.html)
 
 [Исходный код NitroSensual (вдохновение)](https://github.com/KRWCLASSIC/NitroSensual)
+
+## Лицензия
+
+Данный проект выпускается под лицензией GPL 3.0
