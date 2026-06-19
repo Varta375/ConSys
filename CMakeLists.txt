@@ -29,6 +29,7 @@ add_executable(ConSys
     src/HardwareMonitor.cpp
     src/FanController.cpp
     src/PowerManager.cpp
+    src/ProcessManager.cpp
 )
 
 target_include_directories(ConSys PRIVATE
@@ -62,3 +63,40 @@ add_custom_command(TARGET ConSys POST_BUILD
         ${CMAKE_CURRENT_SOURCE_DIR}/external/WinRing0x64.dll
         $<TARGET_FILE_DIR:ConSys>
 )
+
+add_executable(ConSys_tests
+    tests/ConSys_tests.cpp
+    src/HardwareMonitor.cpp
+    src/FanController.cpp
+    src/PowerManager.cpp
+    src/ProcessManager.cpp
+)
+
+target_include_directories(ConSys_tests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/external
+)
+
+target_link_libraries(ConSys_tests PRIVATE
+    doctest::doctest      
+    winreg_iface
+    ${CMAKE_CURRENT_SOURCE_DIR}/external/lhwm-cpp-wrapper.lib
+    mscoree.lib
+    PowrProf.lib
+    advapi32.lib
+)
+
+set_target_properties(ConSys_tests PROPERTIES
+    LINK_FLAGS "/MANIFESTUAC:\"level='requireAdministrator'\""
+)
+
+add_custom_command(TARGET ConSys_tests POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/lhwm-cpp-wrapper.dll
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/LibreHardwareMonitorLib.dll
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/dummy_test.exe
+        $<TARGET_FILE_DIR:ConSys_tests>
+)
+
+enable_testing()
+add_test(NAME ConSysTests COMMAND ConSys_tests)
